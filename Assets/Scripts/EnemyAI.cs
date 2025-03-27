@@ -15,10 +15,12 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private int aggroRange;
     [SerializeField] private GameObject uiMessage;
     [SerializeField] private TextMeshProUGUI uiMessageText;
+    private LifeManager lifeManager;
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        lifeManager = player.GetComponent<LifeManager>();
         UpdateDestination();
     }
 
@@ -66,7 +68,15 @@ public class EnemyAI : MonoBehaviour
     private void RespawnPlayer()
     {
         uiMessageText.text = $"Captured!";
-        StartCoroutine(GameOver());
+        lifeManager.LoseLife();
+        if (lifeManager.totalLives > 0)
+        {
+            StartCoroutine(RestartScene());
+        }
+        else
+        {
+            StartCoroutine(GameOver());
+        }
     }
 
     private void GoalReached()
@@ -91,5 +101,14 @@ public class EnemyAI : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         SceneManager.LoadScene("Game Over");
+    }
+
+    IEnumerator RestartScene()
+    {
+        uiMessage.SetActive(true);
+
+        yield return new WaitForSeconds(2);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
