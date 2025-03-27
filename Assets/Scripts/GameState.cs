@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 
 public class GameState : MonoBehaviour
 {
@@ -11,14 +12,22 @@ public class GameState : MonoBehaviour
     [SerializeField] private TextMeshProUGUI uiMessageText;
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject pauseButton;
+    private LifeManager lifeManager;
+    private bool captured = false;
+
+    private void Start()
+    {
+        lifeManager = player.GetComponent<LifeManager>();
+    }
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) < 2)
+        if (Vector3.Distance(transform.position, player.transform.position) < 2 && captured == false)
         {
+            captured = true;
             Capture();
         }
-        else if (Vector3.Distance(goal.transform.position, player.transform.position) < 2)
+        else if (Vector3.Distance(goal.transform.position, player.transform.position) < 2 && captured == false)
         {
             GoalReached();
         }
@@ -43,7 +52,15 @@ public class GameState : MonoBehaviour
     private void Capture()
     {
         uiMessageText.text = $"Captured!";
-        StartCoroutine(GameOver());
+        lifeManager.LoseLife();
+        if (lifeManager.totalLives > 0)
+        {
+            StartCoroutine(RestartScene());
+        }
+        else
+        {
+            StartCoroutine(GameOver());
+        }
     }
 
     private void GoalReached()
@@ -68,5 +85,14 @@ public class GameState : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         SceneManager.LoadScene("Game Over");
+    }
+
+    IEnumerator RestartScene()
+    {
+        uiMessage.SetActive(true);
+
+        yield return new WaitForSeconds(2);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
