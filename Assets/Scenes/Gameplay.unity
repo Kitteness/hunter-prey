@@ -1362,12 +1362,12 @@ GameObject:
   - component: {fileID: 444806253}
   - component: {fileID: 444806252}
   m_Layer: 5
-  m_Name: 10 Lives Button
+  m_Name: Buy Beanie Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &444806251
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1386,7 +1386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -280}
+  m_AnchoredPosition: {x: 0, y: -330}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &444806252
@@ -1751,7 +1751,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -330}
+  m_AnchoredPosition: {x: 0, y: -280}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &540913277
@@ -2599,13 +2599,94 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1220354247623506192, guid: b3d22c566a40cfe45bfc575a822257f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 880475328}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3d22c566a40cfe45bfc575a822257f4, type: 3}
 --- !u!95 &856644491 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1595969889546942702, guid: b3d22c566a40cfe45bfc575a822257f4, type: 3}
   m_PrefabInstance: {fileID: 856644490}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &880475327
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1307862941}
+    m_Modifications:
+    - target: {fileID: 8108339070808963241, guid: 94b0dbdf073d1624f84edde5cb8cecaa, type: 3}
+      propertyPath: m_Name
+      value: Mobile_animal_people_beanie_wolf_1_onWear
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108339070808963241, guid: 94b0dbdf073d1624f84edde5cb8cecaa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920869726159987219, guid: 94b0dbdf073d1624f84edde5cb8cecaa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920869726159987219, guid: 94b0dbdf073d1624f84edde5cb8cecaa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920869726159987219, guid: 94b0dbdf073d1624f84edde5cb8cecaa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920869726159987219, guid: 94b0dbdf073d1624f84edde5cb8cecaa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6453255
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920869726159987219, guid: 94b0dbdf073d1624f84edde5cb8cecaa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.06719335
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920869726159987219, guid: 94b0dbdf073d1624f84edde5cb8cecaa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920869726159987219, guid: 94b0dbdf073d1624f84edde5cb8cecaa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.47771508
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920869726159987219, guid: 94b0dbdf073d1624f84edde5cb8cecaa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.521334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920869726159987219, guid: 94b0dbdf073d1624f84edde5cb8cecaa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.47771367
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920869726159987219, guid: 94b0dbdf073d1624f84edde5cb8cecaa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.52133363
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920869726159987219, guid: 94b0dbdf073d1624f84edde5cb8cecaa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920869726159987219, guid: 94b0dbdf073d1624f84edde5cb8cecaa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920869726159987219, guid: 94b0dbdf073d1624f84edde5cb8cecaa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94b0dbdf073d1624f84edde5cb8cecaa, type: 3}
+--- !u!4 &880475328 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8920869726159987219, guid: 94b0dbdf073d1624f84edde5cb8cecaa, type: 3}
+  m_PrefabInstance: {fileID: 880475327}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1002979067
 GameObject:
@@ -2658,6 +2739,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeManager: {fileID: 1909879794}
+  beanieButton: {fileID: 444806250}
+  beanie: {fileID: 1574914651}
 --- !u!114 &1002979070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3004,6 +3087,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279499608}
   m_CullTransparentMesh: 1
+--- !u!4 &1307862941 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1220354247623506192, guid: b3d22c566a40cfe45bfc575a822257f4, type: 3}
+  m_PrefabInstance: {fileID: 856644490}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1383681411
 GameObject:
   m_ObjectHideFlags: 0
@@ -3237,8 +3325,8 @@ RectTransform:
   - {fileID: 334082497}
   - {fileID: 2099309648}
   - {fileID: 1279499609}
-  - {fileID: 444806251}
   - {fileID: 540913276}
+  - {fileID: 444806251}
   m_Father: {fileID: 531804506}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3580,6 +3668,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574817350}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1574914651 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8108339070808963241, guid: 94b0dbdf073d1624f84edde5cb8cecaa, type: 3}
+  m_PrefabInstance: {fileID: 880475327}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1675280860
 GameObject:
   m_ObjectHideFlags: 0
@@ -4538,6 +4631,8 @@ MonoBehaviour:
   uiMessageText: {fileID: 537587925}
   pauseScreen: {fileID: 1504360055}
   pauseButton: {fileID: 1722157371}
+  beanieButton: {fileID: 444806250}
+  beanie: {fileID: 1574914651}
 --- !u!4 &1940052262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5862077421946812769, guid: b3d22c566a40cfe45bfc575a822257f4, type: 3}
@@ -4722,7 +4817,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Buy 10 Lives
+  m_text: Buy Beanie
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

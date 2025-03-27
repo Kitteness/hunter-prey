@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.Purchasing.Extension;
+using System.Collections;
 
 public class PurchaseFulfilment : MonoBehaviour
 {
     [SerializeField] private LifeManager lifeManager;
+    [SerializeField] private GameObject beanieButton;
+    [SerializeField] private GameObject beanie;
 
     public void PurchaseCompleted(Product product)
     {
@@ -17,7 +20,8 @@ public class PurchaseFulfilment : MonoBehaviour
                 lifeManager.GainLife(5);
                 break;
             case "product3":
-                lifeManager.GainLife(10);
+                PlayerPrefs.SetInt("BeaniePurchased", 1);
+                beanie.SetActive(true);
                 break;
             default:
                 print("Unmatched product ID");

@@ -12,16 +12,30 @@ public class GameState : MonoBehaviour
     [SerializeField] private TextMeshProUGUI uiMessageText;
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject pauseButton;
+    [SerializeField] private GameObject beanieButton;
+    [SerializeField] private GameObject beanie;
     private LifeManager lifeManager;
     private bool captured = false;
 
     private void Start()
     {
         lifeManager = player.GetComponent<LifeManager>();
+        if (!PlayerPrefs.HasKey("BeaniePurchased"))
+        {
+            PlayerPrefs.SetInt("BeaniePurchased", 0);
+        }
+        if (PlayerPrefs.GetInt("BeaniePurchased") == 1)
+        {
+            beanie.SetActive(true);
+        }
     }
 
     private void Update()
     {
+        if (PlayerPrefs.GetInt("BeaniePurchased") == 1)
+        {
+            beanieButton.SetActive(false);
+        }
         if (Vector3.Distance(transform.position, player.transform.position) < 2 && captured == false)
         {
             captured = true;
@@ -38,6 +52,10 @@ public class GameState : MonoBehaviour
     {
         pauseScreen.SetActive(true);
         pauseButton.SetActive(false);
+        if (PlayerPrefs.GetInt("BeaniePurchased") == 0)
+        {
+            beanieButton.SetActive(true);
+        }
         Time.timeScale = 0;
     }
 
@@ -46,6 +64,7 @@ public class GameState : MonoBehaviour
     {
         pauseScreen.SetActive(false);
         pauseButton.SetActive(true);
+        beanieButton.SetActive(false);
         Time.timeScale = 1;
     }
 
