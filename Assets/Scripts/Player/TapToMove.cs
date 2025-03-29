@@ -30,6 +30,9 @@ public class TapToMove : MonoBehaviour
     [SerializeField] private bool isClickNavigation = false;
     [SerializeField] private TMP_Text modeText;
 
+    private float debugLogInterval = 1f;
+    private float debugLogTimer = 0f;
+
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -134,7 +137,7 @@ public class TapToMove : MonoBehaviour
                 }
                 else
                 {
-                    agent.SetDestination(transform.position);
+                   agent.SetDestination(transform.position);
                 }
                 Vector2 lookInput = GetLookInput();
                 float horizontalLook = lookInput.x;
@@ -183,11 +186,17 @@ public class TapToMove : MonoBehaviour
 
     void LateUpdate()
     {
-        if (agent.enabled)
+        debugLogTimer += Time.deltaTime;
+        if (debugLogTimer >= debugLogInterval)
         {
-            Debug.Log($"PathPending={agent.pathPending}, PathStatus={agent.pathStatus}, RemainingDistance={agent.remainingDistance}, isOnNavMesh={agent.isOnNavMesh},UpdateRotation={agent.updateRotation}");
+            if (agent.enabled)
+            {
+                Debug.Log($"PathPending={agent.pathPending}, PathStatus={agent.pathStatus}, RemainingDistance={agent.remainingDistance}, isOnNavMesh={agent.isOnNavMesh}, UpdateRotation={agent.updateRotation}");
+            }
+            debugLogTimer = 0f;
         }
     }
+    
 
     private Vector2 GetMoveInput()
     {
