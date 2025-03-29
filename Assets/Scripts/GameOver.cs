@@ -3,6 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
+    [SerializeField] private AdsManager AdsManager;
+
+    private void Start()
+    {
+        AdsManager.ShowAd("Interstitial");
+        //AnalyticsManager.Instance.adViewEvent("Interstitial");
+    }
+
     //Return to gameplay.
     public void Retry()
     {

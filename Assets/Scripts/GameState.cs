@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 
 public class GameState : MonoBehaviour
 {
@@ -11,11 +12,8 @@ public class GameState : MonoBehaviour
     [SerializeField] private TextMeshProUGUI uiMessageText;
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject pauseButton;
-<<<<<<< Updated upstream
-=======
     [SerializeField] private GameObject beanieButton;
     [SerializeField] private GameObject beanie;
-    [SerializeField] private AudioManager audioManager;
     private LifeManager lifeManager;
     private bool captured = false;
 
@@ -31,15 +29,19 @@ public class GameState : MonoBehaviour
             beanie.SetActive(true);
         }
     }
->>>>>>> Stashed changes
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) < 2)
+        if (PlayerPrefs.GetInt("BeaniePurchased") == 1)
         {
+            beanieButton.SetActive(false);
+        }
+        if (Vector3.Distance(transform.position, player.transform.position) < 2 && captured == false)
+        {
+            captured = true;
             Capture();
         }
-        else if (Vector3.Distance(goal.transform.position, player.transform.position) < 2)
+        else if (Vector3.Distance(goal.transform.position, player.transform.position) < 2 && captured == false)
         {
             GoalReached();
         }
@@ -50,6 +52,10 @@ public class GameState : MonoBehaviour
     {
         pauseScreen.SetActive(true);
         pauseButton.SetActive(false);
+        if (PlayerPrefs.GetInt("BeaniePurchased") == 0)
+        {
+            beanieButton.SetActive(true);
+        }
         Time.timeScale = 0;
     }
 
@@ -58,17 +64,14 @@ public class GameState : MonoBehaviour
     {
         pauseScreen.SetActive(false);
         pauseButton.SetActive(true);
+        beanieButton.SetActive(false);
         Time.timeScale = 1;
     }
 
     private void Capture()
     {
         uiMessageText.text = $"Captured!";
-<<<<<<< Updated upstream
-        StartCoroutine(GameOver());
-=======
         lifeManager.LoseLife();
-        audioManager.PlaySFX(audioManager.damage);
         if (lifeManager.totalLives > 0)
         {
             StartCoroutine(RestartScene());
@@ -77,7 +80,6 @@ public class GameState : MonoBehaviour
         {
             StartCoroutine(GameOver());
         }
->>>>>>> Stashed changes
     }
 
     private void GoalReached()
@@ -102,5 +104,14 @@ public class GameState : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         SceneManager.LoadScene("Game Over");
+    }
+
+    IEnumerator RestartScene()
+    {
+        uiMessage.SetActive(true);
+
+        yield return new WaitForSeconds(2);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

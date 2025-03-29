@@ -20,25 +20,6 @@ public class AdsManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLis
 #endif
     }
 
-    public void Start()
-    {
-        //Advertisement.Initialize("5782252", true);
-        //StartCoroutine(ShowBannerWhenInitialized());
-
-        //Advertisement.Banner.SetPosition(bannerPosition);
-
-        //Advertisement.Load("Banner" + adUnitSuffix, this);
-    }
-
-    IEnumerator ShowBannerWhenInitialized()
-    {
-        while (!Advertisement.isInitialized)
-        {
-            yield return new WaitForSeconds(0.5f);
-        }
-        Advertisement.Banner.Show("bannerAd");
-    }
-
     public void LoadAd(string adUnitPrefix)
     {
         string adUnitId = adUnitPrefix + adUnitSuffix;
@@ -54,13 +35,6 @@ public class AdsManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLis
     public void OnUnityAdsAdLoaded(string placementId)
     {
         Debug.Log($"{placementId} Advertisement is loaded");
-
-        switch (placementId)
-        {
-            case "Banner_Android":
-                Advertisement.Banner.Show(placementId);
-                break;
-        }
     }
 
     public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message)
