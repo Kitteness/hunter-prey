@@ -4814,6 +4814,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2432414132172137032, guid: 73093ff1bfb96f246ade9e7d022e0915, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432414132172137032, guid: 73093ff1bfb96f246ade9e7d022e0915, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3567631140467298573, guid: 73093ff1bfb96f246ade9e7d022e0915, type: 3}
       propertyPath: m_Actions
       value: 
@@ -4950,6 +4958,10 @@ PrefabInstance:
       propertyPath: modeText
       value: 
       objectReference: {fileID: 1972996738}
+    - target: {fileID: 8108289456232476854, guid: 73093ff1bfb96f246ade9e7d022e0915, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
