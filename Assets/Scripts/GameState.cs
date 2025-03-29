@@ -11,6 +11,27 @@ public class GameState : MonoBehaviour
     [SerializeField] private TextMeshProUGUI uiMessageText;
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject pauseButton;
+<<<<<<< Updated upstream
+=======
+    [SerializeField] private GameObject beanieButton;
+    [SerializeField] private GameObject beanie;
+    [SerializeField] private AudioManager audioManager;
+    private LifeManager lifeManager;
+    private bool captured = false;
+
+    private void Start()
+    {
+        lifeManager = player.GetComponent<LifeManager>();
+        if (!PlayerPrefs.HasKey("BeaniePurchased"))
+        {
+            PlayerPrefs.SetInt("BeaniePurchased", 0);
+        }
+        if (PlayerPrefs.GetInt("BeaniePurchased") == 1)
+        {
+            beanie.SetActive(true);
+        }
+    }
+>>>>>>> Stashed changes
 
     private void Update()
     {
@@ -43,7 +64,20 @@ public class GameState : MonoBehaviour
     private void Capture()
     {
         uiMessageText.text = $"Captured!";
+<<<<<<< Updated upstream
         StartCoroutine(GameOver());
+=======
+        lifeManager.LoseLife();
+        audioManager.PlaySFX(audioManager.damage);
+        if (lifeManager.totalLives > 0)
+        {
+            StartCoroutine(RestartScene());
+        }
+        else
+        {
+            StartCoroutine(GameOver());
+        }
+>>>>>>> Stashed changes
     }
 
     private void GoalReached()
