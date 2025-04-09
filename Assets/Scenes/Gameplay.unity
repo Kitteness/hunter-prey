@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1914095908}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameState, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -2483,6 +2483,7 @@ GameObject:
   - component: {fileID: 1002979069}
   - component: {fileID: 1002979071}
   - component: {fileID: 1002979070}
+  - component: {fileID: 1002979072}
   m_Layer: 5
   m_Name: Logic Manager
   m_TagString: Untagged
@@ -2552,6 +2553,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeManager: {fileID: 1909879794}
+--- !u!114 &1002979072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002979067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 531eedb4d298d2745ac0d45313f5958b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1909879788}
+  goal: {fileID: 15619319}
+  uiMessage: {fileID: 537587923}
+  uiMessageText: {fileID: 537587925}
+  pauseScreen: {fileID: 1504360055}
+  pauseButton: {fileID: 1722157371}
+  beanieButton: {fileID: 444806250}
+  beanie: {fileID: 1574914651}
 --- !u!1 &1059254906
 GameObject:
   m_ObjectHideFlags: 0
@@ -3683,7 +3704,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1914095908}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameState, Assembly-CSharp
         m_MethodName: PauseGame
         m_Mode: 1
@@ -4100,10 +4121,9 @@ GameObject:
   - component: {fileID: 1914095904}
   - component: {fileID: 1914095903}
   - component: {fileID: 1914095907}
-  - component: {fileID: 1914095908}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Hunter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4195,26 +4215,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1914095908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914095902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 531eedb4d298d2745ac0d45313f5958b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1909879788}
-  goal: {fileID: 15619319}
-  uiMessage: {fileID: 537587923}
-  uiMessageText: {fileID: 537587925}
-  pauseScreen: {fileID: 1504360055}
-  pauseButton: {fileID: 1722157371}
-  beanieButton: {fileID: 444806250}
-  beanie: {fileID: 1574914651}
 --- !u!1 &1972996737
 GameObject:
   m_ObjectHideFlags: 0
