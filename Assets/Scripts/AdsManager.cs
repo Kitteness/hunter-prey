@@ -7,7 +7,6 @@ public class AdsManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLis
 {
     private string adUnitSuffix;
     [SerializeField] private LifeManager lifeManager;
-    //public BannerPosition bannerPosition;
 
     public void Awake()
     {
@@ -67,7 +66,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLis
                 if (showCompletionState == UnityAdsShowCompletionState.COMPLETED)
                 {
                     Debug.Log($"You watched the ad. Have 1 Life!");
-                    //AnalyticsManager.Instance.adViewEvent("Rewarded");
+                    AnalyticsManager.Instance.adViewEvent("Rewarded");
                     lifeManager.GainLife(1);
                 }
                 break;
