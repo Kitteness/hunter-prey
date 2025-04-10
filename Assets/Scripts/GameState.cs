@@ -8,6 +8,7 @@ public class GameState : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject goal;
+    [SerializeField] private GameObject checkpoint;
     [SerializeField] private GameObject uiMessage;
     [SerializeField] private TextMeshProUGUI uiMessageText;
     [SerializeField] private GameObject pauseScreen;
@@ -17,6 +18,7 @@ public class GameState : MonoBehaviour
     private GameObject[] hunters;
     private LifeManager lifeManager;
     private bool captured = false;
+    private static bool checkpointSet = false;
 
     private void Start()
     {
@@ -29,6 +31,10 @@ public class GameState : MonoBehaviour
         if (PlayerPrefs.GetInt("BeaniePurchased") == 1)
         {
             beanie.SetActive(true);
+        }
+        if (checkpointSet == true)
+        {
+            player.transform.position = checkpoint.transform.position;
         }
     }
 
@@ -49,6 +55,10 @@ public class GameState : MonoBehaviour
         if (Vector3.Distance(goal.transform.position, player.transform.position) < 2 && captured == false)
         {
             GoalReached();
+        }
+        else if (Vector3.Distance(checkpoint.transform.position, player.transform.position) < 2 && captured == false && checkpointSet == false)
+        {
+            CheckpointReached();
         }
     }
 
@@ -93,11 +103,18 @@ public class GameState : MonoBehaviour
         StartCoroutine(DisplayText());
     }
 
+    private void CheckpointReached()
+    {
+        checkpointSet = true;
+        uiMessageText.text = $"Checkpoint!";
+        StartCoroutine(DisplayText());
+    }
+
     IEnumerator DisplayText()
     {
         uiMessage.SetActive(true);
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         uiMessage.SetActive(false);
     }
@@ -106,8 +123,9 @@ public class GameState : MonoBehaviour
     {
         uiMessage.SetActive(true);
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
+        checkpointSet = false;
         SceneManager.LoadScene("Game Over");
     }
 
@@ -115,7 +133,7 @@ public class GameState : MonoBehaviour
     {
         uiMessage.SetActive(true);
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
