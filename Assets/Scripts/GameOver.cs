@@ -8,7 +8,7 @@ public class GameOver : MonoBehaviour
     private void Start()
     {
         AdsManager.ShowAd("Interstitial");
-        //AnalyticsManager.Instance.adViewEvent("Interstitial");
+        AnalyticsManager.Instance.adViewEvent("Interstitial");
     }
 
     //Return to gameplay.

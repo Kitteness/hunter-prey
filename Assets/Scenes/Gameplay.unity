@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1002979072}
         m_TargetAssemblyTypeName: GameState, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -2484,6 +2484,7 @@ GameObject:
   - component: {fileID: 1002979071}
   - component: {fileID: 1002979070}
   - component: {fileID: 1002979072}
+  - component: {fileID: 1002979073}
   m_Layer: 5
   m_Name: Logic Manager
   m_TagString: Untagged
@@ -2573,6 +2574,18 @@ MonoBehaviour:
   pauseButton: {fileID: 1722157371}
   beanieButton: {fileID: 444806250}
   beanie: {fileID: 1574914651}
+--- !u!114 &1002979073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002979067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a20e92a5dcbfeb49bc38fcd6fa2e583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1059254906
 GameObject:
   m_ObjectHideFlags: 0
@@ -3704,7 +3717,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1002979072}
         m_TargetAssemblyTypeName: GameState, Assembly-CSharp
         m_MethodName: PauseGame
         m_Mode: 1
@@ -4814,14 +4827,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2432414132172137032, guid: 73093ff1bfb96f246ade9e7d022e0915, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 2432414132172137032, guid: 73093ff1bfb96f246ade9e7d022e0915, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3567631140467298573, guid: 73093ff1bfb96f246ade9e7d022e0915, type: 3}
       propertyPath: m_Actions
       value: 
@@ -4958,9 +4963,13 @@ PrefabInstance:
       propertyPath: modeText
       value: 
       objectReference: {fileID: 1972996738}
+    - target: {fileID: 7364601535005345363, guid: 73093ff1bfb96f246ade9e7d022e0915, type: 3}
+      propertyPath: moveSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8108289456232476854, guid: 73093ff1bfb96f246ade9e7d022e0915, type: 3}
-      propertyPath: m_AngularSpeed
-      value: 250
+      propertyPath: m_Speed
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -15,9 +15,11 @@ public class PurchaseFulfilment : MonoBehaviour
         {
             case "product1":
                 lifeManager.GainLife(1);
+                AnalyticsManager.Instance.lifePurchaseEvent(1);
                 break;
             case "product2":
                 lifeManager.GainLife(5);
+                AnalyticsManager.Instance.lifePurchaseEvent(5);
                 break;
             case "product3":
                 PlayerPrefs.SetInt("BeaniePurchased", 1);
