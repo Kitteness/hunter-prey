@@ -8,21 +8,24 @@ public class GameState : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject goal;
-    [SerializeField] private GameObject checkpoint;
     [SerializeField] private GameObject uiMessage;
     [SerializeField] private TextMeshProUGUI uiMessageText;
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject beanieButton;
     [SerializeField] private GameObject beanie;
-    private GameObject[] hunters;
     private LifeManager lifeManager;
     private bool captured = false;
-    private static bool checkpointSet = false;
+    private bool goalReached = false;
 
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     private void Start()
     {
-        hunters = GameObject.FindGameObjectsWithTag("Hunter");
         lifeManager = player.GetComponent<LifeManager>();
         if (!PlayerPrefs.HasKey("BeaniePurchased"))
         {
@@ -32,10 +35,6 @@ public class GameState : MonoBehaviour
         {
             beanie.SetActive(true);
         }
-        if (checkpointSet == true)
-        {
-            player.transform.position = checkpoint.transform.position;
-        }
     }
 
     private void Update()
@@ -44,21 +43,14 @@ public class GameState : MonoBehaviour
         {
             beanieButton.SetActive(false);
         }
-        for (int i = 0; i < hunters.Length; i++)
+        if (Vector3.Distance(transform.position, player.transform.position) < 2 && captured == false)
         {
-            if (Vector3.Distance(hunters[i].transform.position, player.transform.position) < 2 && captured == false)
-            {
-                captured = true;
-                Capture();
-            }
+            captured = true;
+            Capture();
         }
-        if (Vector3.Distance(goal.transform.position, player.transform.position) < 2 && captured == false)
+        else if (Vector3.Distance(goal.transform.position, player.transform.position) < 2 && captured == false && !goalReached)
         {
             GoalReached();
-        }
-        else if (Vector3.Distance(checkpoint.transform.position, player.transform.position) < 2 && captured == false && checkpointSet == false)
-        {
-            CheckpointReached();
         }
     }
 
@@ -99,14 +91,11 @@ public class GameState : MonoBehaviour
 
     private void GoalReached()
     {
-        uiMessageText.text = $"Success!";
-        StartCoroutine(DisplayText());
-    }
+        goalReached = true;
 
-    private void CheckpointReached()
-    {
-        checkpointSet = true;
-        uiMessageText.text = $"Checkpoint!";
+        audioManager.PlaySFX(audioManager.goal);
+
+        uiMessageText.text = $"Success!";
         StartCoroutine(DisplayText());
     }
 
@@ -114,18 +103,18 @@ public class GameState : MonoBehaviour
     {
         uiMessage.SetActive(true);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
 
         uiMessage.SetActive(false);
+        goalReached = false;
     }
 
     IEnumerator GameOver()
     {
         uiMessage.SetActive(true);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
 
-        checkpointSet = false;
         SceneManager.LoadScene("Game Over");
     }
 
@@ -133,7 +122,7 @@ public class GameState : MonoBehaviour
     {
         uiMessage.SetActive(true);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
