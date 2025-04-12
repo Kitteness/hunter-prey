@@ -196,35 +196,26 @@ public class TapToMove : MonoBehaviour
             debugLogTimer = 0f;
         }
     }
-    
+
 
     private Vector2 GetMoveInput()
     {
-        Vector2 input = Vector2.zero;
-        if (leftJoystick != null && leftJoystick.InputVector.magnitude > 0.1f)
-        {
-            input = leftJoystick.InputVector;
-        }
-        else if (moveAction != null)
-        {
-            input = moveAction.ReadValue<Vector2>();
-        }
-        return input;
+
+        if (!isClickNavigation && leftJoystick != null && leftJoystick.gameObject.activeSelf && leftJoystick.InputVector.magnitude > 0.1f)
+            return leftJoystick.InputVector;
+
+        return moveAction != null ? moveAction.ReadValue<Vector2>() : Vector2.zero;
     }
+
 
     private Vector2 GetLookInput()
     {
-        Vector2 input = Vector2.zero;
-        if (rightJoystick != null && rightJoystick.InputVector.magnitude > 0.1f)
-        {
-            input = rightJoystick.InputVector;
-        }
-        else if (lookAction != null)
-        {
-            input = lookAction.ReadValue<Vector2>();
-        }
-        return input;
+        if (!isClickNavigation && rightJoystick != null && rightJoystick.gameObject.activeSelf && rightJoystick.InputVector.magnitude > 0.1f)
+            return rightJoystick.InputVector;
+
+        return lookAction != null ? lookAction.ReadValue<Vector2>() : Vector2.zero;
     }
+
 
     public void Respawn()
     {
