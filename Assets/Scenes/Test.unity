@@ -4188,7 +4188,7 @@ GameObject:
   - component: {fileID: 1675280861}
   - component: {fileID: 1675280862}
   m_Layer: 0
-  m_Name: World
+  m_Name: Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4250,7 +4250,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: b067b96c4abd67448bd7695d34395fa8, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 4cb519d144fa3214facdf71e59566a7f, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &1706215318
 GameObject:
