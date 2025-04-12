@@ -2885,7 +2885,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1909879788}
   goal: {fileID: 15619319}
-  checkpoint: {fileID: 1051098244}
   uiMessage: {fileID: 537587923}
   uiMessageText: {fileID: 537587925}
   pauseScreen: {fileID: 1504360055}
