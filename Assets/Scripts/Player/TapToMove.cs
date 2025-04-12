@@ -166,19 +166,19 @@ public class TapToMove : MonoBehaviour
         {
             if (clickAction.WasPerformedThisFrame())
             {
-                Debug.Log("Click!");
+                //Debug.Log("Click!");
 
                 Vector2 screenPos = pointAction.ReadValue<Vector2>();
-                Debug.Log($"Screen Pos: {screenPos}");
+                //Debug.Log($"Screen Pos: {screenPos}");
 
                 Ray ray = Camera.main.ScreenPointToRay(screenPos);
-                Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red, 2f);
+                //Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red, 2f);
 
                 if (Physics.Raycast(ray, out RaycastHit hit, 100f))
                 {
                     agent.SetDestination(hit.point);
-                    Debug.Log("Set Destination to " + hit.point);
-                    Debug.Log($"Player pos: {transform.position}, Destination: {hit.point}");
+                    //Debug.Log("Set Destination to " + hit.point);
+                    //Debug.Log($"Player pos: {transform.position}, Destination: {hit.point}");
                 }
             }
         }
@@ -191,7 +191,7 @@ public class TapToMove : MonoBehaviour
         {
             if (agent.enabled)
             {
-                Debug.Log($"PathPending={agent.pathPending}, PathStatus={agent.pathStatus}, RemainingDistance={agent.remainingDistance}, isOnNavMesh={agent.isOnNavMesh}, UpdateRotation={agent.updateRotation}");
+                //Debug.Log($"PathPending={agent.pathPending}, PathStatus={agent.pathStatus}, RemainingDistance={agent.remainingDistance}, isOnNavMesh={agent.isOnNavMesh}, UpdateRotation={agent.updateRotation}");
             }
             debugLogTimer = 0f;
         }
