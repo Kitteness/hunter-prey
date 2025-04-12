@@ -15,6 +15,7 @@ public class GameState : MonoBehaviour
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject beanieButton;
     [SerializeField] private GameObject beanie;
+    private GameObject[] hunters;
     private LifeManager lifeManager;
     private bool captured = false;
     private bool goalReached = false;
@@ -28,6 +29,7 @@ public class GameState : MonoBehaviour
     }
     private void Start()
     {
+        hunters = GameObject.FindGameObjectsWithTag("Hunter");
         lifeManager = player.GetComponent<LifeManager>();
         if (!PlayerPrefs.HasKey("BeaniePurchased"))
         {
@@ -49,12 +51,15 @@ public class GameState : MonoBehaviour
         {
             beanieButton.SetActive(false);
         }
-        if (Vector3.Distance(transform.position, player.transform.position) < 2 && captured == false)
+        for (int i = 0; i < hunters.Length; i++)
         {
-            captured = true;
-            Capture();
+            if (Vector3.Distance(hunters[i].transform.position, player.transform.position) < 2 && captured == false)
+            {
+                captured = true;
+                Capture();
+            }
         }
-        else if (Vector3.Distance(goal.transform.position, player.transform.position) < 2 && captured == false && !goalReached)
+        if (Vector3.Distance(goal.transform.position, player.transform.position) < 2 && captured == false && !goalReached)
         {
             GoalReached();
         }

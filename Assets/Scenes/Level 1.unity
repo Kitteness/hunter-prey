@@ -2570,6 +2570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1969940761}
   goal: {fileID: 624285954}
+  checkpoint: {fileID: 1204630747}
   uiMessage: {fileID: 1014388353}
   uiMessageText: {fileID: 1014388354}
   pauseScreen: {fileID: 217277475}
@@ -3710,7 +3711,7 @@ GameObject:
   - component: {fileID: 819053438}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Hunter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4187,7 +4188,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 20}
-  m_SizeDelta: {x: 300, y: 100}
+  m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1050081233
 GameObject:
@@ -4664,6 +4665,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1180252653}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1204630747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8004322271051121225, guid: e18222207482f604aa6e732ba2dcc6b2, type: 3}
+  m_PrefabInstance: {fileID: 49681260}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1222766067
 GameObject:
   m_ObjectHideFlags: 0
