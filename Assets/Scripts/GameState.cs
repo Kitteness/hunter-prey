@@ -16,7 +16,14 @@ public class GameState : MonoBehaviour
     [SerializeField] private GameObject beanie;
     private LifeManager lifeManager;
     private bool captured = false;
+    private bool goalReached = false;
 
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     private void Start()
     {
         lifeManager = player.GetComponent<LifeManager>();
@@ -41,7 +48,7 @@ public class GameState : MonoBehaviour
             captured = true;
             Capture();
         }
-        else if (Vector3.Distance(goal.transform.position, player.transform.position) < 2 && captured == false)
+        else if (Vector3.Distance(goal.transform.position, player.transform.position) < 2 && captured == false && !goalReached)
         {
             GoalReached();
         }
@@ -84,6 +91,10 @@ public class GameState : MonoBehaviour
 
     private void GoalReached()
     {
+        goalReached = true;
+
+        audioManager.PlaySFX(audioManager.goal);
+
         uiMessageText.text = $"Success!";
         StartCoroutine(DisplayText());
     }
@@ -95,6 +106,7 @@ public class GameState : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         uiMessage.SetActive(false);
+        goalReached = false;
     }
 
     IEnumerator GameOver()

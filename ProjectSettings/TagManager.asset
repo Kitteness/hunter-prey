@@ -8,6 +8,7 @@ TagManager:
   - Waypoint 2
   - Waypoint 3
   - Waypoint 4
+  - Audio
   layers:
   - Default
   - TransparentFX

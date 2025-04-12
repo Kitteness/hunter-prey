@@ -5,8 +5,15 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource SFXSource;
 
+    public static AudioManager instance;
     public AudioClip background;
     public AudioClip damage;
+    public AudioClip goal;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -14,6 +21,7 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
 
     }
+
 
     public void PlaySFX(AudioClip clip)
     {

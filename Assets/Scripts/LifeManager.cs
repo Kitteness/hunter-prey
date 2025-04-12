@@ -6,7 +6,12 @@ public class LifeManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI totalLivesText;
 
     public int totalLives;
+    AudioManager audioManager;
 
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     private void Start()
     {
@@ -27,8 +32,11 @@ public class LifeManager : MonoBehaviour
 
     public void LoseLife()
     {
+        audioManager.PlaySFX(audioManager.damage);
+
         totalLives = totalLives - 1;
         PlayerPrefs.SetInt("totalLives", totalLives);
         totalLivesText.text = $"Lives: {totalLives}";
+        
     }
 }
