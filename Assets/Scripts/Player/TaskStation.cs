@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Collider))]
 public class TaskStation : MonoBehaviour
 {
+    public static Vector3 currentNoiseLocation = Vector3.positiveInfinity;
+    public bool hasNoise = false;
+
     [Header("Task Configuration")]
     public string taskName = "SwitchTask";
     public bool requireKey = false;
@@ -49,6 +52,9 @@ public class TaskStation : MonoBehaviour
 
         if (interactAction.IsPressed())
         {
+            currentNoiseLocation = transform.position;
+            hasNoise = true;
+
             if (progressBarUI) progressBarUI.SetActive(true);
 
             currentProgress += Time.deltaTime;
@@ -82,6 +88,9 @@ public class TaskStation : MonoBehaviour
                 currentProgress = 0f;
                 if (taskAudio != null) taskAudio.Stop();
             }
+
+            currentNoiseLocation = Vector3.positiveInfinity;
+            hasNoise = false;
         }
     }
 
@@ -100,6 +109,9 @@ public class TaskStation : MonoBehaviour
         if (progressBarUI) progressBarUI.SetActive(false);
 
         Debug.Log($"{taskName} Complete!");
+
+        currentNoiseLocation = Vector3.positiveInfinity;
+        hasNoise = false;
 
         if (doorToUnlock != null)
         {
@@ -152,5 +164,8 @@ public class TaskStation : MonoBehaviour
             if (progressBarUI) progressBarUI.SetActive(false);
             if (taskAudio != null) taskAudio.Stop();
         }
+
+        currentNoiseLocation = Vector3.positiveInfinity;
+        hasNoise = false;
     }
 }
