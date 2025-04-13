@@ -6,12 +6,14 @@ public class ChaseState : StateMachineBehaviour
     private NavMeshAgent agent;
     private GameObject player;
     [SerializeField] private int aggroRange;
+    [SerializeField] private float chaseSpeed = 5f;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agent = animator.GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
+        agent.speed = chaseSpeed;
         animator.SetFloat("timeIdle", 0);
     }
 

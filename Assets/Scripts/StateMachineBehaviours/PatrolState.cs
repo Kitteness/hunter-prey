@@ -9,6 +9,7 @@ public class PatrolState : StateMachineBehaviour
     private Vector3 target;
     private GameObject player;
     [SerializeField] private int aggroRange;
+    [SerializeField] private float patrolSpeed = 3.5f;
 
     private bool investigatingNoise = false;
     private int previousWaypointIndex = -1;
@@ -20,6 +21,8 @@ public class PatrolState : StateMachineBehaviour
     {
         agent = animator.GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
+
+        agent.speed = patrolSpeed;
 
         waypoints = new Transform[4];
         waypoints[0] = GameObject.FindGameObjectWithTag("Waypoint 1").transform;
