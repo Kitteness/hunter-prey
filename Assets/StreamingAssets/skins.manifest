@@ -1,0 +1,41 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.0.33f1
+CRC: 44826011
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 63817439c60694cbb199416d75330eed
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 24dac4233cf070fd2345a055aa0b2622
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: c0be26dea54c71d412502787ec016371
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Models/Supercyan Character Pack Animal People Sample/Models/animal_people_beanie_wolf_1_onWear.fbx
+- Assets/Models/Supercyan Character Pack Animal People Sample/Models/animal_people_backpack_1_freeSample_onGround.fbx
+- Assets/Models/Supercyan Character Pack Animal People Sample/Models/animal_people_beanie_wolf_1_onGround.fbx
+- Assets/Models/Supercyan Character Pack Animal People Sample/Models/animal_people_backpack_1_freeSample_onWear.fbx
+- Assets/Models/Supercyan Character Pack Animal People Sample/Models/animal_people_wolf_1.fbx
+Dependencies: []

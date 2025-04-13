@@ -18,8 +18,15 @@ public class GameState : MonoBehaviour
     private GameObject[] hunters;
     private LifeManager lifeManager;
     private bool captured = false;
+    private bool goalReached = false;
     private static bool checkpointSet = false;
 
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     private void Start()
     {
         hunters = GameObject.FindGameObjectsWithTag("Hunter");
@@ -52,7 +59,7 @@ public class GameState : MonoBehaviour
                 Capture();
             }
         }
-        if (Vector3.Distance(goal.transform.position, player.transform.position) < 2 && captured == false)
+        if (Vector3.Distance(goal.transform.position, player.transform.position) < 2 && captured == false && !goalReached)
         {
             GoalReached();
         }
@@ -99,6 +106,10 @@ public class GameState : MonoBehaviour
 
     private void GoalReached()
     {
+        goalReached = true;
+
+        audioManager.PlaySFX(audioManager.goal);
+
         uiMessageText.text = $"Success!";
         StartCoroutine(DisplayText());
     }
@@ -117,6 +128,7 @@ public class GameState : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         uiMessage.SetActive(false);
+        goalReached = false;
     }
 
     IEnumerator GameOver()

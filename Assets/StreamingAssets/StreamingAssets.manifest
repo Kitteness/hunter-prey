@@ -1,0 +1,12 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.0.33f1
+CRC: 1257465806
+HashAppended: 0
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: ui
+      Dependencies: {}
+    Info_1:
+      Name: skins
+      Dependencies: {}

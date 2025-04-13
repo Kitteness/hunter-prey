@@ -18,6 +18,8 @@ public class IdleState : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        TaskStation taskStation = FindFirstObjectByType<TaskStation>();
+
         if (Vector3.Distance(animator.transform.position, player.transform.position) < aggroRange)
         {
             animator.SetBool("isChasing", true);
@@ -26,6 +28,11 @@ public class IdleState : StateMachineBehaviour
         {
             timeIdle += Time.deltaTime;
             animator.SetFloat("timeIdle", timeIdle);
+        }
+
+        if (taskStation != null && taskStation.hasNoise)
+        {
+            animator.SetBool("isPatrolling", true);
         }
     }
 }
