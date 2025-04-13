@@ -14,7 +14,7 @@ public class GameOver : MonoBehaviour
     //Return to gameplay.
     public void Retry()
     {
-        SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadScene("Level 1");
     }
 
     //Exit the game, returning to the main menu
