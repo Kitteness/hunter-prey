@@ -2448,7 +2448,7 @@ MonoBehaviour:
   pauseButton: {fileID: 2103418512}
   beanieButton: {fileID: 345810992}
   beanie: {fileID: 433152176}
-  nextScene: 
+  nextScene: MainMenu
 --- !u!114 &567880883
 MonoBehaviour:
   m_ObjectHideFlags: 0
