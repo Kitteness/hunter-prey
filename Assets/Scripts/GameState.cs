@@ -15,6 +15,7 @@ public class GameState : MonoBehaviour
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject beanieButton;
     [SerializeField] private GameObject beanie;
+    [SerializeField] private string nextScene;
     private GameObject[] hunters;
     private LifeManager lifeManager;
     private bool captured = false;
@@ -92,6 +93,7 @@ public class GameState : MonoBehaviour
 
     private void Capture()
     {
+        AnalyticsManager.Instance.playerCaptureEvent(player.transform.position.x, player.transform.position.y, player.transform.position.z, SceneManager.GetActiveScene().name);
         uiMessageText.text = $"Captured!";
         lifeManager.LoseLife();
         if (lifeManager.totalLives > 0)
@@ -111,7 +113,7 @@ public class GameState : MonoBehaviour
         audioManager.PlaySFX(audioManager.goal);
 
         uiMessageText.text = $"Success!";
-        StartCoroutine(DisplayText());
+        StartCoroutine(Success());
     }
 
     private void CheckpointReached()
@@ -139,6 +141,16 @@ public class GameState : MonoBehaviour
 
         checkpointSet = false;
         SceneManager.LoadScene("Game Over");
+    }
+
+    IEnumerator Success()
+    {
+        uiMessage.SetActive(true);
+
+        yield return new WaitForSeconds(1);
+
+        checkpointSet = false;
+        SceneManager.LoadScene(nextScene);
     }
 
     IEnumerator RestartScene()

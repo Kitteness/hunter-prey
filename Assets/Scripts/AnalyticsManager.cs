@@ -60,4 +60,23 @@ public class AnalyticsManager : MonoBehaviour
         AnalyticsService.Instance.RecordEvent(myAdViewEvent);
         AnalyticsService.Instance.Flush();
     }
+
+    public void playerCaptureEvent(float positionX, float positionY, float positionZ, string currentLevel)
+    {
+        if (!_isInitialized)
+        {
+            return;
+        }
+
+        CustomEvent myplayerCaptureEvent = new CustomEvent("playerCaptureEvent")
+        {
+            {"positionX", positionX },
+            {"positionY", positionY },
+            {"positionZ", positionZ },
+            {"currentLevel", currentLevel }
+        };
+
+        AnalyticsService.Instance.RecordEvent(myplayerCaptureEvent);
+        AnalyticsService.Instance.Flush();
+    }
 }
