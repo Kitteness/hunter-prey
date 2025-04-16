@@ -50,7 +50,7 @@ public class TaskStation : MonoBehaviour
             }
         }
 
-        if (interactAction.IsPressed())
+        if (isPlayerInRange)
         {
             currentNoiseLocation = transform.position;
             hasNoise = true;

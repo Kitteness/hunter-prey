@@ -147,7 +147,7 @@ public class GameState : MonoBehaviour
     {
         uiMessage.SetActive(true);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
 
         checkpointSet = false;
         SceneManager.LoadScene(nextScene);
